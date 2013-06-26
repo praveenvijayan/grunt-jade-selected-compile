@@ -1,0 +1,49 @@
+{
+  "name": "grunt-jade-selected-compile",
+  "description": "Compiles selected jade files up on saving.",
+  "version": "0.1.3",
+  "homepage": "https://github.com/praveen/grunt-jade-selected-compile",
+  "author": {
+    "name": "praveenvijayan",
+    "email": "praveenv.vijayan@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/praveen/grunt-jade-selected-compile.git"
+  },
+  "bugs": {
+    "url": "https://github.com/praveen/grunt-jade-selected-compile/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/praveen/grunt-jade-selected-compile/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.1.1",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "grunt": "~0.4.1",
+    "grunt-lib-contrib": "~0.5.2",
+    "tmp": "0.0.16",
+    "jade": "~0.31.2"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.1"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "readme": "# grunt-jade-selected-compile\n\n> Compiles css files up on saving. It won't compile all jade files. If you have too many files it saves lot of time. This plugin is same as grunt-contrib-sass but you don't have to specify each and every file in Grunt.js. \n\n## Getting Started\nThis plugin requires Grunt `~0.4.1`\n\nIf you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:\n\n```shell\nnpm install compile-selected --save-dev\n```\n\nOnce the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:\n\n```js\ngrunt.loadNpmTasks('compile-selected');\n```\n\n## The \"compile_selected\" task\n\n### Overview\nIn your project's Gruntfile, add a section named `compile_selected` to the data object passed into `grunt.initConfig()`.\n\n```js\ngrunt.initConfig({\n  compile_selected: {\n    options: {\n      // Task-specific options go here.\n    },\n    your_target: {\n      // Target-specific file lists and/or options go here.\n    },\n  },\n})\n```\n\n## Sass task\n_Run this task with the `grunt sass` command._\n\nThis task requires you to have [Ruby](http://www.ruby-lang.org/en/downloads/) and [Sass](http://sass-lang.com/download.html). If you're on OS X or Linux you probably already have Ruby installed, try `ruby -v` in your terminal. When you've confirmed you have Ruby installed, run `gem install sass` to install Sass.\n### Options\n\n#### trace\nType: `Boolean`\n\nShow a full traceback on error.\n\n#### cssDir\nType: `string`\n\nAdds css destination folder. All compiled files will place in this path.\n\n#### unixNewlines\nType: `Boolean`\n\nForce Unix newlines in written files.\n\n#### check\nType: `Boolean`\n\nJust check syntax, don't evaluate.\n\n#### style\nType: `String`\n\nOutput style. Can be `nested` (default), `compact`, `compressed`, or `expanded`.\n\n#### precision\nType: `Number`\n\nHow many digits of precision to use when outputting decimal numbers. Defaults to 3.\n\n#### quiet\nType: `Boolean`\n\nSilence warnings and status messages during compilation.\n\n#### compass\nType: `Boolean`\n\nMake Compass imports available and load project configuration.\n\n#### debugInfo\nType: `Boolean`\n\nEmit extra information in the generated CSS that can be used by the FireSass Firebug plugin.\n\n#### lineNumbers\nType: `Boolean`\n\nEmit comments in the generated CSS indicating the corresponding source line.\n\n#### loadPath\nType: `String|Array`\n\nAdd a (or multiple) Sass import path.\n\n#### require\nType: `String|Array`\n\nRequire a (or multiple) Ruby library before running Sass.\n\n#### cacheLocation\nType: `String`\n\nThe path to put cached Sass files. Defaults to `.sass-cache`.\n\n#### noCache\nType: `Boolean`\n\nDon't cache to sassc files.\n\n#### bundleExec\nType: `Boolean`\n\nRun `sass` with [bundle exec](http://gembundler.com/man/bundle-exec.1.html): `bundle exec sass`.\n\n### Usage Examples\n\n#### Example config\n\n```javascript\ngrunt.initConfig({\n  cs: {\n        options: {\n            style: 'expanded',\n            cssDir: '.tmp/css'\n        },\n        files: {\n            src: ['<%= yeoman.app %>/css/*.*']\n        }\n    }\n});\n\ngrunt.loadNpmTasks('grunt-jade-selected-compile');\n\ngrunt.registerTask('default', ['jshint', 'cs']);\n```\n#####Use it with watch tasks\n```watch: {\n            coffee: {\n                files: ['<%= yeoman.app %>/js/{,*/}*.coffee'],\n                tasks: ['coffee:dist']\n            },\n            coffeeTest: {\n                files: ['test/spec/{,*/}*.coffee'],\n                tasks: ['coffee:test']\n            },\n            jade: {\n                files: ['<%= yeoman.app %>/template/**/*.jade'],\n                tasks: ['jade']\n            },\n            cs: {\n                files: ['<%= yeoman.app %>/css/{,*/}*.{jade,sass}'],\n                tasks: ['cs']\n            }\n        }\n```\n\n\n## Contributing\nIn lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).\n\n## Release History\n_(Nothing yet)_\n",
+  "readmeFilename": "README.md",
+  "_id": "compile-selected@0.1.0",
+  "_from": "compile-selected@"
+}
