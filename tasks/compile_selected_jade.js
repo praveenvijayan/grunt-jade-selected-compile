@@ -115,7 +115,7 @@ module.exports = function(grunt) {
 
     var files = grunt.file.expand(this.filesSrc),
         currentFiles=[], max, partialMap={}, partialArry = [], allFiles=[], filteredPartials=[], dirName='';
-    
+
     var compileChangedFile = function (file) {
       if(partialMap[file]){
           compileJade(file);
@@ -129,7 +129,7 @@ module.exports = function(grunt) {
     }  
     
     files.forEach(function(f,i){
-      // console.log(files);
+      // console.log(f);
       fcon = grunt.util.normalizelf(grunt.file.read(f));
       dirName = path.dirname(f)+path.sep;
       filteredPartials = _.map(fcon.match(/include.*/g), function(val){
@@ -144,14 +144,15 @@ module.exports = function(grunt) {
 
     allFiles.forEach(function(f){
         var key = cacheKey(f);
+        // console.log(cache[key])
         if (typeof cache[key] !== 'undefined'){
           if(cache[key].mdate !== fs.statSync(f).mtime.getTime()){
               compileChangedFile(f)
           }
         }else{
-          if(_.indexOf(files, f)>0){
+          if(_.indexOf(files, f)>=0){
               compileJade(f);
-            }
+          }
         }
         cache[key] = fileObj(f);
     });
