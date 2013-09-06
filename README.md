@@ -77,24 +77,26 @@ grunt.loadNpmTasks('grunt-jade-selected-compile');
 grunt.registerTask('default', ['jshint', 'csjade']);
 ```
 #####Use it with watch tasks
-```watch: {
-            coffee: {
-                files: ['<%= yeoman.app %>/js/{,*/}*.coffee'],
-                tasks: ['coffee:dist']
-            },
-            coffeeTest: {
-                files: ['test/spec/{,*/}*.coffee'],
-                tasks: ['coffee:test']
-            },
-            jade: {
-                files: ['<%= yeoman.app %>/template/**/*.jade'],
-                tasks: ['jade']
-            },
-            cs: {
-                files: ['<%= yeoman.app %>/css/{,*/}*.{scss,sass}'],
-                tasks: ['cs']
-            }
-        }
+
+```javascript
+watch: {
+    coffee: {
+        files: ['<%= yeoman.app %>/js/{,*/}*.coffee'],
+        tasks: ['coffee:dist']
+    },
+    coffeeTest: {
+        files: ['test/spec/{,*/}*.coffee'],
+        tasks: ['coffee:test']
+    },
+    jade: {
+        files: ['<%= yeoman.app %>/template/**/*.jade'],
+        tasks: ['jade']
+    },
+    cs: {
+        files: ['<%= yeoman.app %>/css/{,*/}*.{scss,sass}'],
+        tasks: ['cs']
+    }
+}
 ```
 
 
